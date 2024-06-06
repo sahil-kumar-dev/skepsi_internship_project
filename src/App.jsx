@@ -1,10 +1,13 @@
 import './App.css'
+import AllUsers from './components/AllUsers'
+import Navbar from './components/Navbar'
 
 function App() {
 
   return (
     <>
-      <h1>hello</h1>
+      <Navbar />
+      <AllUsers/>
     </>
   )
 }
