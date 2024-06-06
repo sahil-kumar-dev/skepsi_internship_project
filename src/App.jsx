@@ -5,6 +5,8 @@ import AllUsers from './components/AllUsers'
 import Navbar from './components/Navbar'
 import { useDispatch } from 'react-redux'
 import { addInitialUsersAsync } from './slice/userSlice'
+import { Route, Routes } from 'react-router-dom'
+import EditUser from './components/EditUser'
 
 function App() {
 
@@ -17,8 +19,11 @@ function App() {
 	return (
 		<>
 			<Navbar />
-			<AllUsers />
-			<AddUserForm />
+			<Routes>
+				<Route path='/' element={<AllUsers />}/>
+				<Route path='/adduser' element={<AddUserForm />}/>
+				<Route path='/edituser/:id' element={<EditUser />}/>
+			</Routes>
 		</>
 	)
 }

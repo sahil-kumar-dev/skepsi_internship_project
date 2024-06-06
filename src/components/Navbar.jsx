@@ -1,21 +1,14 @@
-import { Fragment } from 'react'
 import {
     Disclosure,
     DisclosureButton,
-    DisclosurePanel,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    Transition,
+    DisclosurePanel
 } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'All Users', href: '/', current: true },
+    { name: 'Add User', href: '/adduser', current: false },
 ]
 
 function classNames(...classes) {
@@ -52,9 +45,9 @@ export default function Navbar() {
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <a
+                                            <Link
                                                 key={item.name}
-                                                href={item.href}
+                                                to={item.href}
                                                 className={classNames(
                                                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                     'rounded-md px-3 py-2 text-sm font-medium'
@@ -62,7 +55,7 @@ export default function Navbar() {
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
